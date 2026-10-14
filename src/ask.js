@@ -167,16 +167,39 @@
     sync();
     ask(v);
   });
-  input.focus({ preventScroll: true });
+
+  // O terminal é o foco padrão: volta para ele após cliques, ao reabrir a aba
+  // e ao digitar com o foco em outro lugar. Menus abertos e seleção de texto ficam em paz.
+  function busy() {
+    var a = document.activeElement;
+    return document.querySelector('#share-pop:not([hidden]), .lang-list:not([hidden])') ||
+      String(window.getSelection()).length > 0 ||
+      (a && a !== input && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName));
+  }
+  function refocus() {
+    if (document.activeElement !== input && !busy()) input.focus({ preventScroll: true });
+  }
+  refocus();
+  document.addEventListener('click', function () { setTimeout(refocus, 0); });
+  window.addEventListener('focus', refocus);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) refocus(); });
 
   var konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
   var pos = 0;
   document.addEventListener('keydown', function (ev) {
-    if (ev.target === input) return;
+    // Depois das setas, "b" e "a" já caem no input: a sequência continua valendo lá.
+    if (ev.target === input && pos < 8) return;
     pos = ev.key === konami[pos] ? pos + 1 : (ev.key === konami[0] ? 1 : 0);
     if (pos === konami.length) {
       pos = 0;
+      ev.preventDefault();
+      input.value = '';
+      sync();
       say(window.ASK_KONAMI[lang()]);
+      return;
+    }
+    if (ev.target !== input && ev.key.length === 1 && !ev.ctrlKey && !ev.metaKey && !ev.altKey && !busy()) {
+      input.focus({ preventScroll: true });
     }
   });
 
