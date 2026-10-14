@@ -19,6 +19,12 @@
       b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
       if (b.getAttribute('role') === 'option') b.setAttribute('aria-selected', String(b.dataset.lang === lang));
     });
+    var sfx = lang === 'pt-BR' ? '' : '-' + lang;
+    document.querySelectorAll('[data-social]').forEach(function (a) {
+      var f = 'src/assets/social-' + a.dataset.social + sfx + '.png';
+      a.href = f;
+      a.querySelector('img').src = f;
+    });
     document.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
   }
   applyLang(root.lang, false);
@@ -35,7 +41,7 @@
       shareBtn.setAttribute('aria-expanded', String(open));
     };
     var fill = function () {
-      var url = location.origin + location.pathname;
+      var url = location.origin + location.pathname + '?lang=' + document.documentElement.lang;
       var text = document.querySelector('.meet-name').textContent.trim() + ' · ' + document.querySelector('.meet-when').textContent.replace(/\s*\|\s*/g, ' | ').trim();
       var u = encodeURIComponent(url), t = encodeURIComponent(text);
       var href = {

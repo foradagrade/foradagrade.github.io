@@ -17,6 +17,8 @@
   document.documentElement.dataset.theme = t;
   var l = localStorage.getItem('lang');
   if (l !== 'pt-BR' && l !== 'en' && l !== 'es') { var n = navigator.language || ''; l = /^pt/i.test(n) ? 'pt-BR' : /^es/i.test(n) ? 'es' : 'en'; }
+  var q = new URLSearchParams(location.search).get('lang');
+  if (q === 'pt-BR' || q === 'en' || q === 'es') l = q;
   document.documentElement.lang = l;
 })();
 </script>
@@ -203,10 +205,10 @@
               </div>
               <p class="share-h" data-i18n="shareImg">Imagens para o Instagram</p>
               <div class="share-imgs">
-                <a href="src/assets/social-claro-post.png" download="fora-da-grade-post.png" class="share-light"><img src="src/assets/social-claro-post.png" alt="" loading="lazy"><span data-i18n="sharePost">Post</span></a>
-                <a href="src/assets/social-escuro-post.png" download="fora-da-grade-post.png" class="share-dark"><img src="src/assets/social-escuro-post.png" alt="" loading="lazy"><span data-i18n="sharePost">Post</span></a>
-                <a href="src/assets/social-claro-story.png" download="fora-da-grade-story.png" class="share-light"><img src="src/assets/social-claro-story.png" alt="" loading="lazy"><span data-i18n="shareStory">Story</span></a>
-                <a href="src/assets/social-escuro-story.png" download="fora-da-grade-story.png" class="share-dark"><img src="src/assets/social-escuro-story.png" alt="" loading="lazy"><span data-i18n="shareStory">Story</span></a>
+                <a data-social="claro-post" href="src/assets/social-claro-post.png" download="fora-da-grade-post.png" class="share-light"><img src="src/assets/social-claro-post.png" alt="" loading="lazy"><span data-i18n="sharePost">Post</span></a>
+                <a data-social="escuro-post" href="src/assets/social-escuro-post.png" download="fora-da-grade-post.png" class="share-dark"><img src="src/assets/social-escuro-post.png" alt="" loading="lazy"><span data-i18n="sharePost">Post</span></a>
+                <a data-social="claro-story" href="src/assets/social-claro-story.png" download="fora-da-grade-story.png" class="share-light"><img src="src/assets/social-claro-story.png" alt="" loading="lazy"><span data-i18n="shareStory">Story</span></a>
+                <a data-social="escuro-story" href="src/assets/social-escuro-story.png" download="fora-da-grade-story.png" class="share-dark"><img src="src/assets/social-escuro-story.png" alt="" loading="lazy"><span data-i18n="shareStory">Story</span></a>
               </div>
             </div>
           </div>
