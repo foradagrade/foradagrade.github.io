@@ -27,6 +27,9 @@
     e.kw.forEach(function (w) { e.kwSet[norm(w)] = 1; index[norm(w)] = 1; });
   });
 
+  var WHO = {};
+  ['quem', 'who', 'whom', 'quien', 'quienes'].forEach(function (w) { WHO[norm(w)] = 1; });
+
   // Devolve [] (fallback) ou 1-2 entradas. Palavra fora do vocabulário => [].
   function match(text) {
     var ws = words(text);
@@ -48,6 +51,8 @@
     var fl = kb.entries.findIndex(function (e) { return e.id === 'fablab'; });
     if (hits[fi] > 0 && hits[fl] > 0) return [kb.entries[fi], kb.entries[fl]];
     var best = Math.max.apply(null, hits);
+    // "quem?", "who are you?", "¿quiénes son?": pergunta por pessoa = fundadores.
+    if (ws.some(function (w) { return WHO[w]; }) && (best < 1 || hits[fi] > 0)) return [kb.entries[fi]];
     if (best < 1) return [];
     var top = kb.entries.filter(function (e, k) { return hits[k] === best; });
     return top.length <= 2 ? top : [];

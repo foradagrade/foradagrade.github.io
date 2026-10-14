@@ -13,7 +13,7 @@ window.ASK_KB = {
     // en
     'the', 'an', 'of', 'in', 'on', 'at', 'to', 'for', 'with', 'and', 'or', 'what', 'which', 'who', 'how', 'where', 'when',
     'is', 'are', 'was', 'will', 'be', 'been', 'it', 'this', 'that', 'these', 'those', 'about', 'you', 'your', 'we', 'our',
-    'us', 'i', 'my', 'do', 'does', 'can', 'could', 'would', 'there', 'here', 'hi', 'hello',
+    'us', 'i', 'my', 'do', 'does', 'can', 'could', 'would', 'there', 'here', 'hi', 'hello', 's', 're',
     // es
     'el', 'la', 'los', 'las', 'unos', 'unas', 'del', 'y', 'cual', 'cuales', 'quien', 'quienes', 'como', 'donde', 'cuando', 'es', 'son',
     'va', 'fue', 'estan', 'tiene', 'hay', 'al', 'mas', 'eso', 'esto', 'ese', 'esa', 'usted', 'ustedes', 'tu', 'su', 'puede',
@@ -118,7 +118,8 @@ window.ASK_KB = {
       kw: ['fundador', 'fundadora', 'fundadores', 'fundou', 'fundaram', 'fundado', 'criador', 'criadores', 'criou', 'criaram',
         'criado', 'organizador', 'organizadores', 'organiza', 'organizam', 'idealizador', 'responsavel', 'responsaveis', 'equipe',
         'founder', 'founders', 'founded', 'creator', 'creators', 'created', 'organizer', 'organizers', 'organize', 'organizes',
-        'team', 'behind', 'runs', 'run', 'fundo', 'fundaron', 'creo', 'crearon', 'creadores', 'equipo', 'detras'],
+        'team', 'behind', 'runs', 'run', 'fundo', 'fundaron', 'creo', 'crearon', 'creadores', 'equipo', 'detras',
+        'pessoas', 'people', 'personas', 'somos', 'owner', 'owners', 'dono', 'donos', 'dueno', 'duenos', 'lidera', 'leads', 'lead'],
       a: {
         'pt-BR': 'Lauro Gripa e Alan Fachini fundaram o Fora da Grade. Alan fundou o Fab Lab Joinville.',
         en: 'Lauro Gripa and Alan Fachini founded Fora da Grade. Alan founded Fab Lab Joinville.',
