@@ -1,8 +1,8 @@
-/* Sequenciador do logo da L06: toca cada animação de logo-anim.css uma vez, em ordem aleatória (saco
+/* Sequenciador do logo: toca cada animação de logo-anim.css uma vez, em ordem aleatória (saco
    embaralhado; ao esvaziar, reembaralha sem repetir a última). O fim do ciclo vem do ls-clock no próprio <svg>. */
 (function () {
   var logo = document.querySelector('.logo-seq');
-  if (!logo || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var all = logo.getAttribute('data-anims').split(' '), bag = [], cur = null;
 
   function draw() {

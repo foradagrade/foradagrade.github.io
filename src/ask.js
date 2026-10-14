@@ -4,8 +4,6 @@
   var kb = window.ASK_KB;
   var root = document.documentElement;
   var box = document.querySelector('.ask');
-  if (!kb || !box) return;
-
   var log = box.querySelector('.ask-log');
   var form = box.querySelector('.ask-form');
   var input = box.querySelector('.ask-form input');
@@ -84,7 +82,7 @@
   // Pergunta idêntica ao rótulo de um chip (ex.: "o que é?") responde essa entrada.
   function matchChip(text) {
     var c = cmd(text).replace(/[^a-z0-9 ]/g, '').trim();
-    var chips = window.ASK_CHIPS || [];
+    var chips = window.ASK_CHIPS;
     for (var i = 0; i < chips.length; i++) {
       for (var k in chips[i].q) {
         if (cmd(chips[i].q[k]).replace(/[^a-z0-9 ]/g, '').trim() === c) {
@@ -97,12 +95,12 @@
 
   function hasUpcoming() {
     var now = new Date();
-    return (window.ASK_EVENTS || []).some(function (e) { return now < new Date(e.end + 'T00:00:00'); });
+    return window.ASK_EVENTS.some(function (e) { return now < new Date(e.end + 'T00:00:00'); });
   }
 
   // Quando/onde/assunto só valem enquanto houver encontro futuro.
   function answerOf(e, l) {
-    if ((window.ASK_EVENT_IDS || []).indexOf(e.id) !== -1 && !hasUpcoming()) return window.ASK_NO_EVENT[l];
+    if (window.ASK_EVENT_IDS.indexOf(e.id) !== -1 && !hasUpcoming()) return window.ASK_NO_EVENT[l];
     return e.a[l];
   }
 
@@ -110,7 +108,7 @@
   function egg(question, l) {
     var c = cmd(question);
     if (/^echo(?: |$)/.test(c)) return { t: question.trim().slice(4).trim(), chips: false };
-    var eggs = window.ASK_EGGS || [];
+    var eggs = window.ASK_EGGS;
     for (var i = 0; i < eggs.length; i++) {
       if (new RegExp(eggs[i].re).test(c)) return { t: eggs[i].a[l], chips: !!eggs[i].chips };
     }
@@ -120,7 +118,7 @@
   function showChips(l) {
     var row = document.createElement('div');
     row.className = 'ask-chips';
-    (window.ASK_CHIPS || []).forEach(function (c) {
+    window.ASK_CHIPS.forEach(function (c) {
       var b = document.createElement('button');
       b.type = 'button';
       b.textContent = c.q[l];
@@ -186,6 +184,5 @@
     clearInterval(timer);
     timer = null;
     log.textContent = '';
-    });
-  window.ASK_MATCH = match;
+  });
 })();

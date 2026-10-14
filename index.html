@@ -25,20 +25,14 @@
 <link rel="stylesheet" href="src/shared-argon.css">
 <link rel="stylesheet" href="src/logo-anim.css">
 <style>
-  :root { --max: 72rem; --h1: clamp(1.9rem, 4.4vw, 3rem); --logo: clamp(7.5rem, 38vw, 12rem); }
-  .r-bar.top-center .in { display: grid; grid-template-columns: 1fr var(--logo) 1fr; }
-  .r-bar.top-center .mark { width: 100%; }
-  .hl-box { width: 100%; }
-  .hl-box { text-align: center; }
-  .hl-box h1 strong { color: var(--hi-accent); }
-  .hl-box h1 em { color: var(--hi-accent-2); }
+  .hl-box { width: 100%; text-align: center; }
   .hl-box h1, .hl-box .lead { max-width: none; margin-inline: auto; }
   :root:not([data-theme="dark"]) .hl-box { background: var(--surface); color: var(--ink); border-color: var(--line); }
   :root:not([data-theme="dark"]) .hl-box h1 { color: var(--ink); }
   :root:not([data-theme="dark"]) .hl-box h1 strong { color: var(--accent); }
   :root:not([data-theme="dark"]) .hl-box h1 em { color: var(--accent-2); }
   :root:not([data-theme="dark"]) .hl-box .lead { color: var(--muted); }
-  .r-why p, .r-name p, .tree, .term .lead { max-width: none; }
+  .r-why p, .r-name p, .tree { max-width: none; }
   .r-why h2, .r-name h2, .r-meet h2 { color: var(--ink); font-size: .9375rem; letter-spacing: .12em; }
   .r-why p, .r-name p { color: color-mix(in srgb, var(--ink) 66%, var(--bg)); font-size: 1.0625rem; }
   [data-theme="dark"] .r-why h2, [data-theme="dark"] .r-name h2, [data-theme="dark"] .r-meet h2 { color: #fff; }
@@ -114,7 +108,7 @@
 </style>
 </head>
 <body>
-<div class="page" data-variant="L06-argon">
+<div class="page">
   <header class="row r-bar top-center">
     <div class="in">
       <div class="mark">
@@ -163,7 +157,7 @@
   <div class="row r-hero">
     <div class="in">
       <div class="hl-box">
-      <h1 data-i18n-html="h1b">Cultura de <strong>experimentação</strong> para dentro da <em>universidade</em>.</h1>
+      <h1 data-i18n-html="h1">Cultura de <strong>experimentação</strong> para dentro da <em>universidade</em>.</h1>
       <p class="lead" data-i18n="lead">Modelos locais de IA, código aberto e eletrônica na mão de quem estuda.</p>
       </div>
     </div>
