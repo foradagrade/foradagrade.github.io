@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<style>@media(prefers-color-scheme:dark){.ink{fill:#e6edf3}.t{stroke:#4db3ec}.b{fill:#4db3ec}.n{fill:#f69a31}}</style>
+<g class="ink" fill="#10202b"><rect x="8" y="26" width="6" height="36"/><rect x="26" y="26" width="6" height="36"/><rect x="2" y="33" width="38" height="6"/><rect x="2" y="49" width="38" height="6"/></g>
+<rect class="b" fill="#147fb8" x="26" y="33" width="6" height="6"/>
+<g class="t" fill="none" stroke="#147fb8" stroke-width="4"><path d="M29 36L56 9"/><path d="M40 9V25H56"/></g>
+<g class="n" fill="#e97a0c"><rect x="35.5" y="4.5" width="9" height="9"/><rect x="51.5" y="4.5" width="9" height="9"/><rect x="51.5" y="20.5" width="9" height="9"/></g>
+</svg>
