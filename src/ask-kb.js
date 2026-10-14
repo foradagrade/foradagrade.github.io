@@ -154,7 +154,12 @@ window.ASK_EGGS = [
     'pt-BR': 'A resposta. Qual era a pergunta?', en: 'The answer. What was the question?', es: 'La respuesta. ¿Cuál era la pregunta?' } },
   { re: '^(coffee|cafe|make coffee|fazer cafe)$', a: {
     'pt-BR': '418: eu sou um bule de chá.', en: "418: I'm a teapot.", es: '418: soy una tetera.' } },
-  { chips: true, re: '^(oi+|ola+|hello|hi|hola|hey|e ai|eae|opa|bom dia|boa tarde|boa noite|buenas|buenos dias|buenas tardes|good (morning|afternoon|evening)|help|ajuda|ayuda|\\?)$', a: {
+  { chips: true, re: '^[\\s!?.,¡¿]*(' +
+    'o+i+e*|oie+|oii+e*|ola+|alo+|opa+|eae+|e ai|eai|iae+|salve|fala+( ai)?|tudo bem|beleza|blz|bom dia|boa tarde|boa noite|boas|' +
+    'h+i+|hii+|hiya|hey+|hey there|heya|hello+|hello there|hi there|helo|hallo|howdy|yo+|sup|wassup|whats up|greetings|' +
+    'good (morning|afternoon|evening)|hola+|holi+|buenas|buen dia|buenos dias|buenas tardes|buenas noches|que tal|saludos|' +
+    'help|ajuda|ayuda|\\?' +
+    ')( (pessoal|galera|gente|turma|everyone|all|folks|there|todos|chicos))?[\\s!?.,]*$', a: {
     'pt-BR': 'Olá! Selecione uma sugestão ou pergunte.', en: 'Hello! Select a suggestion or ask away.',
     es: '¡Hola! Selecciona una sugerencia o pregunta.' } }
 ];
