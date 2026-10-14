@@ -34,8 +34,8 @@ window.ASK_KB = {
     {
       id: 'where',
       kw: ['onde', 'where', 'donde', 'local', 'lugar', 'auditorio', 'bloco', 'endereco', 'sala', 'acontece', 'ocorre', 'place', 'location', 'venue',
-        'auditorium', 'block', 'address', 'room', 'held', 'bloque', 'direccion', 'ocurre'],
-      a: { 'pt-BR': 'Auditório Bloco F.', en: 'Block F Auditorium.', es: 'Auditorio Bloque F.' }
+        'auditorium', 'block', 'address', 'room', 'held', 'bloque', 'direccion', 'ocurre', 'udesc', 'joinville', 'campus'],
+      a: { 'pt-BR': 'UDESC Joinville · Auditório Bloco F.', en: 'UDESC Joinville · Block F Auditorium.', es: 'UDESC Joinville · Auditorio Bloque F.' }
     },
     {
       id: 'join',
