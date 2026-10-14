@@ -67,6 +67,8 @@
     return p;
   }
 
+  function bottom() { log.scrollTop = log.scrollHeight; }
+
   function say(text) {
     var p = line('ask-a');
     clearInterval(timer);
@@ -75,6 +77,7 @@
     timer = setInterval(function () {
       i += 2;
       p.textContent = text.slice(0, i);
+      bottom();
       if (i >= text.length) { clearInterval(timer); timer = null; }
     }, 14);
   }
@@ -159,7 +162,7 @@
     }
     say(out);
     if (chips) showChips(l);
-    log.scrollTop = log.scrollHeight;
+    bottom();
   }
 
   function sync() { mirror.textContent = input.value; }
