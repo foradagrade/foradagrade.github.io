@@ -27,14 +27,32 @@
   });
 
 
-  document.querySelectorAll('.meet-toggle').forEach(function (b) {
-    var box = b.closest('.meet');
-    b.addEventListener('click', function () {
-      var open = b.getAttribute('aria-expanded') !== 'true';
-      b.setAttribute('aria-expanded', String(open));
-      box.dataset.open = String(open);
+  var shareBtn = document.querySelector('.share-btn');
+  if (shareBtn) {
+    var pop = document.getElementById('share-pop');
+    var setShare = function (open) {
+      pop.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    };
+    var fill = function () {
+      var url = location.origin + location.pathname;
+      var text = document.querySelector('.meet-name').textContent.trim() + ' · ' + document.querySelector('.meet-when').textContent.replace(/\s*\|\s*/g, ' | ').trim();
+      var u = encodeURIComponent(url), t = encodeURIComponent(text);
+      var href = {
+        whatsapp: 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url),
+        telegram: 'https://t.me/share/url?url=' + u + '&text=' + t,
+        x: 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u,
+        facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + u,
+        linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + u
+      };
+      pop.querySelectorAll('[data-net]').forEach(function (a) { a.href = href[a.dataset.net]; });
+    };
+    shareBtn.addEventListener('click', function () { if (pop.hidden) fill(); setShare(pop.hidden); });
+    document.addEventListener('click', function (e) { if (!shareBtn.parentNode.contains(e.target)) setShare(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !pop.hidden) { setShare(false); shareBtn.focus(); }
     });
-  });
+  }
 
   var trigger = document.querySelector('.lang-trigger');
   if (trigger) {
