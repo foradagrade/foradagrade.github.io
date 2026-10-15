@@ -39,7 +39,7 @@
   --max: 72rem;
   --measure: 38rem;
   --logo: clamp(7.5rem, 38vw, 12rem);
-  --h1: clamp(1.9rem, 4.4vw, 3rem);
+  --h1: clamp(1.9rem, 9.5vw, 3.75rem);
   --gutter: clamp(1.25rem, 5vw, 3rem);
   color-scheme: light;
 }
@@ -129,7 +129,7 @@ h1 em { font-style: normal; }
   margin: var(--s2) 0 0;
   max-width: var(--measure);
   color: var(--muted);
-  font-size: 1rem;
+  font-size: clamp(.6875rem, 2.7vw - 1px, 1rem);
   line-height: 1.55;
 }
 
