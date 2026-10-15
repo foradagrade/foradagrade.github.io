@@ -2,7 +2,7 @@
 // data-i18n-html (marcação) e data-i18n-aria (aria-label).
 window.I18N = {
   'pt-BR': {
-    title: 'Fora da Grade — cultura de experimentação na universidade',
+    title: 'Fora da Grade · Cultura de experimentação na universidade',
     description: 'Fora da Grade leva cultura de experimentação para dentro das universidades: modelos locais de IA, código aberto e eletrônica.',
     ogDescription: 'Cultura de experimentação na universidade: modelos locais de IA, código aberto e eletrônica.',
     toggle: 'Alternar tema claro e escuro',
@@ -37,7 +37,7 @@ window.I18N = {
     name1: 'Na universidade, "grade" é o currículo obrigatório. Trabalhamos fora dela: nos projetos que a ementa não prevê, mas que ensinam tanto quanto.'
   },
   en: {
-    title: 'Fora da Grade — a culture of experimentation at university',
+    title: 'Fora da Grade · A culture of experimentation at university',
     description: 'Fora da Grade brings a culture of experimentation into universities: local AI models, open source and electronics.',
     ogDescription: 'A culture of experimentation at university: local AI models, open source and electronics.',
     toggle: 'Toggle light and dark theme',
@@ -72,7 +72,7 @@ window.I18N = {
     name1: 'At Brazilian universities, the "grade" is the required curriculum. We work outside of it ("fora da grade"): on the projects the syllabus doesn\'t cover, but that teach just as much.'
   },
   es: {
-    title: 'Fora da Grade — cultura de experimentación en la universidad',
+    title: 'Fora da Grade · Cultura de experimentación en la universidad',
     description: 'Fora da Grade lleva cultura de experimentación a las universidades: modelos de IA locales, código abierto y electrónica.',
     ogDescription: 'Cultura de experimentación en la universidad: modelos de IA locales, código abierto y electrónica.',
     toggle: 'Cambiar entre tema claro y oscuro',
