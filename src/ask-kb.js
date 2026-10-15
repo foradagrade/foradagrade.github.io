@@ -136,14 +136,14 @@ window.ASK_EGGS = [
     'pt-BR': 'ementa.txt (vazio)  projetos/  curiosidade/  grade/ (ignorada)',
     en: 'syllabus.txt (empty)  projects/  curiosity/  grade/ (ignored)',
     es: 'programa.txt (vacío)  proyectos/  curiosidad/  grade/ (ignorada)' } },
-  { re: '^pwd$', a: { 'pt-BR': '/fora/da/grade', en: '/outside/the/grade', es: '/fuera/de/la/grade' } },
+  { re: '^pwd$', a: { 'pt-BR': '/fora/da/grade', en: '/off/the/grid', es: '/fuera/de/la/malla' } },
   { re: '^whoami$', a: { 'pt-BR': 'visitante curioso', en: 'curious visitor', es: 'visitante curioso' } },
   { re: '^sudo\\b', a: {
     'pt-BR': 'visitante não está no arquivo sudoers. Este incidente será reportado.',
     en: 'visitor is not in the sudoers file. This incident will be reported.',
     es: 'visitante no está en el archivo sudoers. Este incidente será reportado.' } },
   { re: '^(exit|quit|logout|sair|salir)$', a: {
-    'pt-BR': 'Você já está fora da grade.', en: "You're already outside the grade.", es: 'Ya estás fuera de la malla.' } },
+    'pt-BR': 'Você já está fora da grade.', en: "You're already off the grid.", es: 'Ya estás fuera de la malla.' } },
   { re: '^rm\\b', a: {
     'pt-BR': 'Permissão negada. A grade curricular continua intacta.',
     en: 'Permission denied. The curriculum remains intact.',
