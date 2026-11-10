@@ -60,10 +60,9 @@
   .share-nets a { padding: .35rem .7rem; border: 1px solid var(--hi-line); border-radius: 999px; font-size: .8125rem; color: var(--hi-ink); text-decoration: none; transition: background-color .15s; }
   .share-nets a:hover { background: color-mix(in srgb, var(--hi-ink) 12%, transparent); }
   .share-imgs { display: flex; align-items: flex-end; gap: .75rem; }
-  .share-imgs a { display: grid; gap: .4rem; justify-items: center; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--hi-ink); text-decoration: none; }
-  .share-imgs img { display: block; height: 8.5rem; width: auto; border: 1px solid var(--hi-line); border-radius: .25rem; }
+  .share-imgs a { flex: 1 1 0; min-width: 0; display: grid; gap: .4rem; justify-items: center; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--hi-ink); text-decoration: none; }
+  .share-imgs img { display: block; width: 100%; height: auto; box-sizing: border-box; border: 1px solid var(--hi-line); border-radius: .25rem; }
   .share-imgs a:hover img { border-color: var(--hi-muted); }
-  .share-imgs a:nth-child(n+3) img { height: 11.5rem; }
   .share-light { display: grid; }
   .share-dark { display: none !important; }
   [data-theme="dark"] .share-light { display: none !important; }
@@ -199,12 +198,14 @@
                 <a data-net="facebook" target="_blank" rel="noopener">Facebook</a>
                 <a data-net="linkedin" target="_blank" rel="noopener">LinkedIn</a>
               </div>
-              <p class="share-h" data-i18n="shareImg">Imagens para o Instagram</p>
+              <p class="share-h" data-i18n="shareImg">Imagens para compartilhar</p>
               <div class="share-imgs">
                 <a data-social="claro-post" href="src/assets/social-claro-post.png" download="fora-da-grade-post.png" class="share-light"><img src="src/assets/social-claro-post.png" alt="" loading="lazy"><span data-i18n="sharePost">Post</span></a>
                 <a data-social="escuro-post" href="src/assets/social-escuro-post.png" download="fora-da-grade-post.png" class="share-dark"><img src="src/assets/social-escuro-post.png" alt="" loading="lazy"><span data-i18n="sharePost">Post</span></a>
                 <a data-social="claro-story" href="src/assets/social-claro-story.png" download="fora-da-grade-story.png" class="share-light"><img src="src/assets/social-claro-story.png" alt="" loading="lazy"><span data-i18n="shareStory">Story</span></a>
                 <a data-social="escuro-story" href="src/assets/social-escuro-story.png" download="fora-da-grade-story.png" class="share-dark"><img src="src/assets/social-escuro-story.png" alt="" loading="lazy"><span data-i18n="shareStory">Story</span></a>
+                <a data-social="claro-whatsapp" href="src/assets/social-claro-whatsapp.png" download="fora-da-grade-whatsapp.png" class="share-light"><img src="src/assets/social-claro-whatsapp.png" alt="" loading="lazy"><span data-i18n="shareWhatsapp">WhatsApp</span></a>
+                <a data-social="escuro-whatsapp" href="src/assets/social-escuro-whatsapp.png" download="fora-da-grade-whatsapp.png" class="share-dark"><img src="src/assets/social-escuro-whatsapp.png" alt="" loading="lazy"><span data-i18n="shareWhatsapp">WhatsApp</span></a>
               </div>
             </div>
           </div>
