@@ -101,15 +101,12 @@
     return null;
   }
 
-  function hasUpcoming() {
-    var now = new Date();
-    return window.ASK_EVENTS.some(function (e) { return now < new Date(e.end + 'T00:00:00'); });
-  }
-
-  // Quando/onde/assunto só valem enquanto houver encontro futuro.
+  // Entrada sem resposta fixa (quando/onde/assunto/palestrantes) responde com o próximo encontro.
   function answerOf(e, l) {
-    if (window.ASK_EVENT_IDS.indexOf(e.id) !== -1 && !hasUpcoming()) return window.ASK_NO_EVENT[l];
-    return e.a[l];
+    if (e.a) return e.a[l];
+    var next = window.proximoEncontro();
+    if (!next) return window.ASK_NO_EVENT[l];
+    return next.ask[e.id] ? next.ask[e.id][l] : kb.fallback[l];
   }
 
   // Devolve {t, chips} para um comando/egg, ou null.

@@ -18,13 +18,50 @@
     document.querySelectorAll('[data-lang]').forEach(function (b) {
       b.setAttribute('aria-selected', String(b.dataset.lang === lang));
     });
-    var sfx = lang === 'pt-BR' ? '' : '-' + lang;
-    document.querySelectorAll('[data-social]').forEach(function (a) {
-      var f = 'src/assets/social-' + a.dataset.social + sfx + '.png';
-      a.href = f;
-      a.querySelector('img').src = f;
-    });
+    renderEncontros(lang, dict);
     document.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
+  }
+
+  // Cartão do próximo encontro (some se não houver) e lista dos concluídos, do mais novo ao mais velho.
+  function renderEncontros(lang, dict) {
+    var t = window.encontroText;
+    var next = window.proximoEncontro();
+    var card = document.querySelector('.meet');
+    card.hidden = !next;
+    if (next) {
+      card.querySelector('.meet-name').innerHTML = t(next.name, lang);
+      card.querySelector('.meet-sub').textContent = next.sub ? t(next.sub, lang) : '';
+      card.querySelector('.meet-by').textContent = next.speakers ? t(next.speakers, lang) : '';
+      card.querySelector('.meet-when').innerHTML = t(next.when, lang);
+      card.querySelector('.meet-addr').textContent = next.address ? t(next.address, lang) : '';
+      var sfx = lang === 'pt-BR' ? '' : '-' + lang;
+      card.querySelectorAll('[data-social]').forEach(function (a) {
+        var f = 'src/assets/encontros/' + next.id + '/' + a.dataset.social + sfx + '.png';
+        a.href = f;
+        a.querySelector('img').src = f;
+      });
+    }
+    var list = document.querySelector('.meet-past');
+    list.textContent = '';
+    window.ENCONTROS.filter(function (e) { return e !== next && new Date() >= new Date(e.end + 'T00:00:00'); })
+      .reverse().forEach(function (e) {
+        var li = document.createElement('li');
+        li.innerHTML = '<span class="past-date"></span><span class="past-name"></span><span class="past-done"></span>';
+        li.querySelector('.past-date').textContent = e.date;
+        li.querySelector('.past-name').innerHTML = t(e.name, lang);
+        li.querySelector('.past-done').textContent = dict.meetDone;
+        if (e.recording) {
+          var a = document.createElement('a');
+          a.className = 'past-rec';
+          a.href = e.recording;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = dict.meetWatch;
+          li.appendChild(a);
+        }
+        list.appendChild(li);
+      });
+    list.hidden = !list.children.length;
   }
   applyLang(root.lang, false);
   document.querySelectorAll('[data-lang]').forEach(function (b) {

@@ -25,17 +25,24 @@ window.ASK_KB = {
     es: 'No sé responder eso. Pregunta en el grupo de WhatsApp o selecciona una sugerencia.'
   },
   entries: [
+    // when/where/topics/speakers: a resposta vem do próximo encontro (encontros.js, campo ask).
     {
       id: 'when',
-      kw: ['quando', 'when', 'cuando', 'data', 'dia', 'horario', 'hora', 'sexta', 'comeca', 'comeco', 'date', 'day', 'time', 'start', 'starts', 'friday',
-        'fecha', 'comienza', 'empieza', 'viernes'],
-      a: { 'pt-BR': 'Sexta, 16/10, às 19h30.', en: 'Friday, 16/10, 7:30 pm.', es: 'Viernes, 16/10, 19:30.' }
+      kw: ['quando', 'when', 'cuando', 'data', 'dia', 'horario', 'hora', 'sexta', 'quinta', 'comeca', 'comeco', 'termina', 'acaba',
+        'date', 'day', 'time', 'start', 'starts', 'end', 'ends', 'friday', 'thursday',
+        'fecha', 'comienza', 'empieza', 'viernes', 'jueves']
     },
     {
       id: 'where',
       kw: ['onde', 'where', 'donde', 'local', 'lugar', 'auditorio', 'bloco', 'endereco', 'sala', 'acontece', 'ocorre', 'place', 'location', 'venue',
-        'auditorium', 'block', 'address', 'room', 'held', 'bloque', 'direccion', 'ocurre', 'udesc', 'joinville', 'campus'],
-      a: { 'pt-BR': 'UDESC Joinville · Auditório Bloco F.', en: 'UDESC Joinville · Block F Auditorium.', es: 'UDESC Joinville · Auditorio Bloque F.' }
+        'auditorium', 'block', 'address', 'room', 'held', 'bloque', 'direccion', 'ocurre', 'udesc', 'joinville', 'campus',
+        'becomex', 'neogrid', 'predio', 'building', 'edificio', 'avenida', 'santos', 'dumont', 'fica', 'queda', 'located']
+    },
+    {
+      id: 'speakers',
+      kw: ['palestrante', 'palestrantes', 'apresenta', 'apresentam', 'apresentador', 'apresentadores', 'fala', 'falam',
+        'speaker', 'speakers', 'speaking', 'speaks', 'presenter', 'presenters', 'presenting', 'presents',
+        'ponente', 'ponentes', 'presenta', 'presentan', 'presentador', 'presentadores', 'expositor', 'expositores']
     },
     {
       id: 'join',
@@ -64,12 +71,9 @@ window.ASK_KB = {
         'soberania', 'motor', 'inferencia', 'harness', 'fine', 'tuning', 'jev', 'palestra', 'apresentacao', 'conversa', 'roda',
         'topic', 'subject', 'theme', 'content', 'agenda', 'talk', 'discuss', 'discussed', 'cover', 'covered', 'sovereignty',
         'self', 'engine', 'inference', 'presentation', 'conversation', 'temas', 'contenido', 'charla', 'hablar', 'abordan',
-        'motores', 'presentacion', 'conversacion', 'engines'],
-      a: {
-        'pt-BR': 'Autosoberania em IA: modelos locais, motores de inferência, alternativas locais ao Jev, harness, fine-tuning.',
-        en: 'Self-sovereignty in AI: local models, inference engines, local alternatives to Jev, harness, fine-tuning.',
-        es: 'Autosoberanía en IA: modelos locales, motores de inferencia, alternativas locales a Jev, harness, fine-tuning.'
-      }
+        'motores', 'presentacion', 'conversacion', 'engines',
+        'seguranca', 'security', 'seguridad', 'chaincode', 'hyperledger', 'fabric', 'blockchain', 'llm', 'llms',
+        'artigo', 'paper', 'articulo', 'pesquisa', 'research', 'investigacion']
     },
     {
       id: 'localai',
@@ -93,13 +97,13 @@ window.ASK_KB = {
     },
     {
       id: 'recorded',
-      kw: ['gravado', 'gravada', 'gravacao', 'gravar', 'gravam', 'filmado', 'filmar', 'video', 'transmitido', 'transmissao',
-        'vivo', 'recorded', 'record', 'recording', 'recordings', 'stream', 'streamed', 'streaming', 'livestream', 'filmed',
-        'replay', 'grabado', 'grabada', 'grabacion', 'grabar', 'graban', 'transmision', 'transmiten'],
+      kw: ['gravado', 'gravada', 'gravacao', 'gravacoes', 'gravar', 'gravam', 'filmado', 'filmar', 'video', 'transmitido', 'transmissao',
+        'vivo', 'youtube', 'assistir', 'recorded', 'record', 'recording', 'recordings', 'stream', 'streamed', 'streaming', 'livestream', 'filmed',
+        'replay', 'watch', 'grabado', 'grabada', 'grabacion', 'grabaciones', 'grabar', 'graban', 'transmision', 'transmiten'],
       a: {
-        'pt-BR': 'Sim, o encontro será gravado.',
-        en: 'Yes, the meeting will be recorded.',
-        es: 'Sí, el encuentro será grabado.'
+        'pt-BR': 'Os encontros gravados têm o link da gravação na lista de encontros acima.',
+        en: 'Recorded meetings have a link to the recording in the list of meetings above.',
+        es: 'Los encuentros grabados tienen el enlace a la grabación en la lista de encuentros arriba.'
       }
     },
     {
@@ -174,13 +178,11 @@ window.ASK_CHIPS = [
   { id: 'where', q: { 'pt-BR': 'onde?', en: 'where?', es: '¿dónde?' } },
   { id: 'join', q: { 'pt-BR': 'como entrar?', en: 'how to join?', es: '¿cómo unirme?' } },
   { id: 'what', q: { 'pt-BR': 'o que é?', en: 'what is it?', es: '¿qué es?' } },
-  { id: 'topics', q: { 'pt-BR': 'qual o assunto?', en: 'what topics?', es: '¿qué temas?' } }
+  { id: 'topics', q: { 'pt-BR': 'qual o assunto?', en: 'what topics?', es: '¿qué temas?' } },
+  { id: 'speakers', q: { 'pt-BR': 'quem apresenta?', en: 'who is speaking?', es: '¿quién presenta?' } }
 ];
 
-// Encontros marcados. "end" = primeiro dia em que o encontro já passou (00:00 local).
-// Sem encontro futuro, quando/onde/assunto respondem noEvent. Ao marcar outro, some um item aqui.
-window.ASK_EVENTS = [{ end: '2026-10-17' }];
-window.ASK_EVENT_IDS = ['when', 'where', 'topics'];
+// Sem encontro futuro (encontros.js), quando/onde/assunto/palestrantes respondem isto.
 window.ASK_NO_EVENT = {
   'pt-BR': 'Aguarde o anúncio do próximo encontro. Veja a lista de encontros acima.',
   en: 'Wait for the next meeting to be announced. See the list of meetings above.',
