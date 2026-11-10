@@ -36,7 +36,7 @@
       card.querySelector('.meet-addr').textContent = next.address ? t(next.address, lang) : '';
       var sfx = lang === 'pt-BR' ? '' : '-' + lang;
       card.querySelectorAll('[data-social]').forEach(function (a) {
-        var f = 'src/assets/encontros/' + next.id + '/' + a.dataset.social + sfx + '.png';
+        var f = 'src/assets/encontros/' + next.id + '/' + a.dataset.social + sfx + '-with-url.png';
         a.href = f;
         a.querySelector('img').src = f;
       });

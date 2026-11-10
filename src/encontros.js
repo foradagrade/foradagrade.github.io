@@ -1,5 +1,6 @@
-// Encontros, do mais antigo ao mais novo. Para marcar outro, some um item aqui e ponha as imagens de
-// compartilhar em src/assets/encontros/<id>/ (<fundo>-<formato>[-<idioma>].png, saídas digitais do convite).
+// Encontros, do mais antigo ao mais novo. Para marcar outro, some um item aqui e ponha as imagens de compartilhar
+// em src/assets/encontros/<id>/ (saídas digitais do convite: <fundo>-<formato>[-<idioma>].png sem o link do site e
+// <fundo>-<formato>[-<idioma>]-with-url.png com ele; o menu de compartilhar oferece as com link).
 // end: primeiro dia em que o encontro já passou (00:00 local). O primeiro ainda não passado vira o cartão do
 // próximo encontro; os passados entram na lista de concluídos, com o link da gravação quando houver.
 // Texto igual nos três idiomas pode ser string; senão { 'pt-BR', en, es }. name/when aceitam marcação.
