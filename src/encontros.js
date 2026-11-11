@@ -35,8 +35,7 @@ window.ENCONTROS = [
     id: 'e02',
     end: '2026-11-13',
     date: '12/11',
-    name: 'Evaluating <span class="a">Open-Weight LLMs</span> for Hyperledger Fabric <span class="b">Chaincode Security</span>',
-    sub: 'Complementarity, Coverage, and Limitations',
+    name: 'Evaluating <span class="a">Open-Weight LLMs</span>',
     speakers: 'Glauco V. Scheffel · Gustavo M. Camargo',
     when: {
       'pt-BR': '<span class="a">Quinta</span> <span class="sep">|</span> <span class="a">12/11</span> <span class="sep">|</span> <span class="a">19h–20h30</span> <span class="sep">|</span> <span class="b">Auditório Becomex · Prédio Neogrid</span>',
